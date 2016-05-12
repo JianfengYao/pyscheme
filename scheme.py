@@ -59,9 +59,9 @@ def scheme_apply(procedure, args, env):
     if isinstance(procedure, PrimitiveProcedure):
         return apply_primitive(procedure, args, env)
     elif isinstance(procedure, LambdaProcedure):
-        "*** YOUR CODE HERE ***"
+        return apply_lambda(procedure, args, env)
     elif isinstance(procedure, MuProcedure):
-        "*** YOUR CODE HERE ***"
+        return apply_Mu(procedure, arg)
     else:
         raise SchemeError("Cannot call {0}".format(str(procedure)))
 
@@ -74,7 +74,11 @@ def apply_primitive(procedure, args, env):
     >>> apply_primitive(plus, twos, env)
     4
     """
-    "*** YOUR CODE HERE ***"
+    scheme_eval(env)
+    expr = 
+    scheme_eval(expr,env)
+    
+    
 
 ################
 # Environments #
@@ -149,14 +153,7 @@ class LambdaProcedure:
 
 class MuProcedure:
     """A procedure defined by a mu expression, which has dynamic scope.
-     _________________
-    < Scheme is cool! >
-     -----------------
-            \   ^__^
-             \  (oo)\_______
-                (__)\       )\/\
-                    ||----w |
-                    ||     ||
+  
     """
 
     def __init__(self, formals, body):
@@ -208,7 +205,6 @@ def do_define_form(vals, env):
 def do_quote_form(vals):
     """Evaluate a quote form with parameters VALS."""
     check_form(vals, 1, 1)
-    "*** YOUR CODE HERE ***"
 
 
 def do_let_form(vals, env):
@@ -221,7 +217,6 @@ def do_let_form(vals, env):
 
     # Add a frame containing bindings
     names, values = nil, nil
-    "*** YOUR CODE HERE ***"
     new_env = env.make_call_frame(names, values)
 
     # Evaluate all but the last expression after bindings, and return the last
@@ -238,11 +233,9 @@ def do_let_form(vals, env):
 def do_if_form(vals, env):
     """Evaluate if form with parameters VALS in environment ENV."""
     check_form(vals, 2, 3)
-    "*** YOUR CODE HERE ***"
 
 def do_and_form(vals, env):
     """Evaluate short-circuited and with parameters VALS in environment ENV."""
-    "*** YOUR CODE HERE ***"
 
 def quote(value):
     """Return a Scheme expression quoting the Scheme VALUE.
@@ -257,7 +250,6 @@ def quote(value):
 
 def do_or_form(vals, env):
     """Evaluate short-circuited or with parameters VALS in environment ENV."""
-    "*** YOUR CODE HERE ***"
 
 def do_cond_form(vals, env):
     """Evaluate cond form with parameters VALS in environment ENV."""
@@ -310,7 +302,6 @@ def check_formals(formals):
 
     >>> check_formals(read_line("(a b c)"))
     """
-    "*** YOUR CODE HERE ***"
 
 ##################
 # Tail Recursion #
